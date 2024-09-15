@@ -9,7 +9,7 @@ pipeline {
             echo 'start clean and build package'
             script {
             try{
-              sh 'mvn clean'
+              bat 'mvn clean'
               }catch(Exception e){
              echo "Failed: ${e}"
               }
@@ -26,7 +26,7 @@ pipeline {
         stage('Compile') {
                    steps {
                     echo 'start compile and build package'
-                      sh 'mvn compile'
+                      bat 'mvn compile'
                     echo 'end compile and build package'
                    }
                    post {
@@ -39,7 +39,7 @@ pipeline {
         stage('Install') {
                          steps {
                           echo 'start Install and build package'
-                            sh 'mvn install'
+                            bat 'mvn install'
                           echo 'end Install and build package'
                          }
                          post {
