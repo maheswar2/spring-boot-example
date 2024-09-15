@@ -7,7 +7,13 @@ pipeline {
         stage('Clean') {
            steps {
             echo 'start clean and build package'
+            script {
+            try{
               sh 'mvn clean'
+              }catch(Exception e){
+             echo "Failed: ${e}"
+              }
+              }
             echo 'end clean and build package'
            }
            post {
